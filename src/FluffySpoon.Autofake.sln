@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluffySpoon.Autofake", "FluffySpoon.Autofake\FluffySpoon.Autofake.csproj", "{EBE673A4-9835-4BAB-A16F-96FAF2701185}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluffySpoon.Autofake.NSubstitute", "FluffySpoon.Autofake.NSubstitute\FluffySpoon.Autofake.NSubstitute.csproj", "{04695BAC-D989-44FA-B92C-53C938A4A6CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBE673A4-9835-4BAB-A16F-96FAF2701185}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBE673A4-9835-4BAB-A16F-96FAF2701185}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBE673A4-9835-4BAB-A16F-96FAF2701185}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBE673A4-9835-4BAB-A16F-96FAF2701185}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04695BAC-D989-44FA-B92C-53C938A4A6CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04695BAC-D989-44FA-B92C-53C938A4A6CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04695BAC-D989-44FA-B92C-53C938A4A6CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04695BAC-D989-44FA-B92C-53C938A4A6CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C699E7FC-A6DF-4647-A8B2-024502183B2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C699E7FC-A6DF-4647-A8B2-024502183B2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C699E7FC-A6DF-4647-A8B2-024502183B2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C699E7FC-A6DF-4647-A8B2-024502183B2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
