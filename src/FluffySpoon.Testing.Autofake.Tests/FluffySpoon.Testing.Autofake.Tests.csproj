@@ -11,9 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FluffySpoon.Autofake.Autofac\FluffySpoon.Autofake.Autofac.csproj" />
-    <ProjectReference Include="..\FluffySpoon.Autofake.NSubstitute\FluffySpoon.Autofake.NSubstitute.csproj" />
-    <ProjectReference Include="..\FluffySpoon.Autofake\FluffySpoon.Autofake.csproj" />
+    <ProjectReference Include="..\FluffySpoon.Testing.Autofake.Autofac\FluffySpoon.Testing.Autofake.Autofac.csproj" />
+    <ProjectReference Include="..\FluffySpoon.Testing.Autofake.NSubstitute\FluffySpoon.Testing.Autofake.NSubstitute.csproj" />
+    <ProjectReference Include="..\FluffySpoon.Testing.Autofake\FluffySpoon.Testing.Autofake.csproj" />
   </ItemGroup>
 
   <ItemGroup>

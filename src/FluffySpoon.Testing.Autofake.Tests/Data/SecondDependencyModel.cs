@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FluffySpoon.Autofake.Tests.Data
+namespace FluffySpoon.Testing.Autofake.Tests.Data
 {
     class SecondDependencyModel : ISecondDependencyModel
 	{

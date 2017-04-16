@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FluffySpoon.Autofake\FluffySpoon.Autofake.csproj" />
+    <ProjectReference Include="..\FluffySpoon.Testing.Autofake\FluffySpoon.Testing.Autofake.csproj" />
   </ItemGroup>
 
 </Project>

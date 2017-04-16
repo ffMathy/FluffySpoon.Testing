@@ -1,10 +1,10 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Autofac;
-using FluffySpoon.Autofake.Tests.Data;
+using FluffySpoon.Testing.Autofake.Tests.Data;
 using NSubstitute;
 
-namespace FluffySpoon.Autofake.Tests
+namespace FluffySpoon.Testing.Autofake.Tests
 {
     [TestClass]
     public class AutofacNSubstituteTest

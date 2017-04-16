@@ -1,9 +1,9 @@
-﻿using FluffySpoon.Autofake.NSubstitute;
+﻿using FluffySpoon.Testing.Autofake.NSubstitute;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FluffySpoon.Autofake
+namespace FluffySpoon.Testing.Autofake
 {
     public static class RegistrationExtensions
     {

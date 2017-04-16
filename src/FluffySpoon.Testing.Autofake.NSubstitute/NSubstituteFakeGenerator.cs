@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace FluffySpoon.Autofake.NSubstitute
+namespace FluffySpoon.Testing.Autofake.NSubstitute
 {
 	public class NSubstituteFakeGenerator : IFakeGenerator
 	{

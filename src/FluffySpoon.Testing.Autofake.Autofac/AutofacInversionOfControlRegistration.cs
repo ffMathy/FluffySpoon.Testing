@@ -2,7 +2,7 @@
 using System;
 using System.Reflection;
 
-namespace FluffySpoon.Autofake.Autofac
+namespace FluffySpoon.Testing.Autofake.Autofac
 {
 	public class AutofacInversionOfControlRegistration : IInversionOfControlRegistration
 	{

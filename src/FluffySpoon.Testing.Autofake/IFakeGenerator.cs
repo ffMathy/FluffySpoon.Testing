@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace FluffySpoon.Autofake
+namespace FluffySpoon.Testing.Autofake
 {
 	public interface IFakeGenerator
 	{

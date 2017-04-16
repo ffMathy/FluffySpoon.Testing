@@ -1,4 +1,4 @@
-﻿namespace FluffySpoon.Autofake
+﻿namespace FluffySpoon.Testing.Autofake
 {
 	public interface IAutofaker
 	{

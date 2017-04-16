@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace FluffySpoon.Autofake
+namespace FluffySpoon.Testing.Autofake
 {
     public class Autofaker : IAutofaker
 	{

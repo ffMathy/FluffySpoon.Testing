@@ -1,4 +1,4 @@
-﻿namespace FluffySpoon.Autofake.Tests.Data
+﻿namespace FluffySpoon.Testing.Autofake.Tests.Data
 {
 	public interface IMainModel
 	{

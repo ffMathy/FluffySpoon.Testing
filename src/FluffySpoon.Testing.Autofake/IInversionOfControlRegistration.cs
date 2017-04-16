@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace FluffySpoon.Autofake
+namespace FluffySpoon.Testing.Autofake
 {
     public interface IInversionOfControlRegistration
     {

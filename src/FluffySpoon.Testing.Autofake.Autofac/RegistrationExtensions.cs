@@ -1,10 +1,10 @@
 ﻿using Autofac;
-using FluffySpoon.Autofake.Autofac;
+using FluffySpoon.Testing.Autofake.Autofac;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FluffySpoon.Autofake
+namespace FluffySpoon.Testing.Autofake
 {
     public static class RegistrationExtensions
     {
