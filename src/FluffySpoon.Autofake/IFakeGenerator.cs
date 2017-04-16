@@ -5,6 +5,6 @@ namespace FluffySpoon.Autofake
 {
 	public interface IFakeGenerator
 	{
-		object GenerateFake(TypeInfo interfaceType);
+		object GenerateFake(Type interfaceType);
 	}
 }

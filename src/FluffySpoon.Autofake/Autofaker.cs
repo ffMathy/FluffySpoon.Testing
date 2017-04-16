@@ -4,25 +4,64 @@ using System.Reflection;
 
 namespace FluffySpoon.Autofake
 {
-    public class Autofaker
-    {
-		private readonly IInversionOfControlRegistration _registration;
-		private readonly IFakeGenerator _fakeGenerator;
+    public class Autofaker : IAutofaker
+	{
+		private IInversionOfControlRegistration _registration;
+		private IFakeGenerator _fakeGenerator;
+
+		/// <summary>
+		/// Creates an Autofaker instance. Configure with extension methods afterwards.
+		/// </summary>
+		public Autofaker()
+		{
+		}
 
 		public Autofaker(
 			IInversionOfControlRegistration registration,
 			IFakeGenerator fakeGenerator)
 		{
+			Configure(
+				registration,
+				fakeGenerator);
+		}
+
+		public void Configure(
+			IInversionOfControlRegistration registration)
+		{
 			_registration = registration;
+		}
+
+		public void Configure(
+			IFakeGenerator fakeGenerator)
+		{
 			_fakeGenerator = fakeGenerator;
 		}
 
-		public void RegisterFakesForConstructorTypes<TClassOrInterface>()
+		public void Configure(
+			IInversionOfControlRegistration registration,
+			IFakeGenerator fakeGenerator)
 		{
-			var classType = typeof(TClassOrInterface).GetTypeInfo();
+			Configure(registration);
+			Configure(fakeGenerator);
+		}
+
+		public void RegisterFakesForConstructorParameterTypesOf<TClassOrInterface>()
+		{
+			if(_registration == null)
+			{
+				throw new InvalidOperationException("An inversion of control registration must be specified.");
+			}
+
+			if(_fakeGenerator == null)
+			{
+				throw new InvalidOperationException("A fake generator must be specified.");
+			}
+
+			var classType = typeof(TClassOrInterface);
 			var interfaceType = classType;
 
-			if(classType.IsInterface)
+			var classTypeInfo = classType.GetTypeInfo();
+			if (classTypeInfo.IsInterface)
 			{
 				classType = FindImplementingClassType(classType);
 			}
@@ -40,33 +79,37 @@ namespace FluffySpoon.Autofake
 			var arguments = constructor.GetParameters();
 			foreach(var argument in arguments)
 			{
-				var argumentType = argument
-					.ParameterType
-					.GetTypeInfo();
-				if (!argumentType.IsInterface)
+				var argumentInterfaceType = argument.ParameterType;
+				var argumentInterfaceTypeInfo = argumentInterfaceType.GetTypeInfo();
+				if (!argumentInterfaceTypeInfo.IsInterface)
 					continue;
 				
-				_registration.RegisterTypeAsInstance(
-					interfaceType,
-					() => _fakeGenerator.GenerateFake(argumentType));
+				var registrationType = _registration.GetType();
+				var registerTypeAsInstanceMethod = registrationType.GetMethod(nameof(_registration.RegisterInterfaceTypeAsInstance));
+				var registerTypeAsInstanceGenericMethod = registerTypeAsInstanceMethod.MakeGenericMethod(argumentInterfaceType);
+				registerTypeAsInstanceGenericMethod.Invoke(
+					_registration,
+					new object[] {
+						_fakeGenerator.GenerateFake(argumentInterfaceType)
+					});
 			}
 		}
 
-		private TypeInfo FindImplementingClassType(TypeInfo interfaceType)
+		private Type FindImplementingClassType(Type interfaceType)
 		{
 			var assemblyTypes = interfaceType
+				.GetTypeInfo()
 				.Assembly
-				.GetTypes()
-				.Select(x => x.GetTypeInfo());
+				.GetTypes();
 			
 			foreach(var classType in assemblyTypes)
 			{
-				if (!classType.IsClass)
+				var classTypeInfo = classType.GetTypeInfo();
+				if (!classTypeInfo.IsClass)
 					continue;
 
 				var implementedInterfaces = classType
-					.GetInterfaces()
-					.Select(x => x.GetTypeInfo());
+					.GetInterfaces();
 				if (!implementedInterfaces.Any(x => x == interfaceType))
 					continue;
 

@@ -8,10 +8,10 @@ namespace FluffySpoon.Autofake.NSubstitute
 {
 	public class NSubstituteFakeGenerator : IFakeGenerator
 	{
-		public object GenerateFake(TypeInfo interfaceType)
+		public object GenerateFake(Type interfaceType)
 		{
 			return Substitute.For(
-				new Type[] { interfaceType.DeclaringType }, 
+				new Type[] { interfaceType }, 
 				new object[0]);
 		}
 	}
