@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.3
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluffySpoon.Testing.Autofake", "FluffySpoon.Testing.Autofake\FluffySpoon.Testing.Autofake.csproj", "{EBE673A4-9835-4BAB-A16F-96FAF2701185}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluffySpoon.Testing.Autofake", "FluffySpoon.Testing.Autofake\FluffySpoon.Testing.Autofake.csproj", "{EBE673A4-9835-4BAB-A16F-96FAF2701185}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluffySpoon.Testing.Autofake.NSubstitute", "FluffySpoon.Testing.Autofake.NSubstitute\FluffySpoon.Testing.Autofake.NSubstitute.csproj", "{04695BAC-D989-44FA-B92C-53C938A4A6CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluffySpoon.Testing.Autofake.NSubstitute", "FluffySpoon.Testing.Autofake.NSubstitute\FluffySpoon.Testing.Autofake.NSubstitute.csproj", "{04695BAC-D989-44FA-B92C-53C938A4A6CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluffySpoon.Testing.Autofake.Autofac", "FluffySpoon.Testing.Autofake.Autofac\FluffySpoon.Testing.Autofake.Autofac.csproj", "{A69F7B59-222A-45DC-B987-3E02FCC9344A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluffySpoon.Testing.Autofake.Autofac", "FluffySpoon.Testing.Autofake.Autofac\FluffySpoon.Testing.Autofake.Autofac.csproj", "{A69F7B59-222A-45DC-B987-3E02FCC9344A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluffySpoon.Testing.Autofake.Tests", "FluffySpoon.Testing.Autofake.Tests\FluffySpoon.Testing.Autofake.Tests.csproj", "{04AA79A5-C800-4D7F-A95B-1FA92020CF92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluffySpoon.Testing.Autofake.Tests", "FluffySpoon.Testing.Autofake.Tests\FluffySpoon.Testing.Autofake.Tests.csproj", "{04AA79A5-C800-4D7F-A95B-1FA92020CF92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
