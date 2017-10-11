@@ -1,7 +1,7 @@
 # FluffySpoon.Testing.Autofake
 The `FluffySpoon.Testing.Autofake` package makes it easy for you to automatically register all your class dependencies as fakes, resulting in a setup that is easier to use with Test Driven Development (TDD) and more flexible to change in your code.
 
-## Sample using `Autofac` as DI/IOC system and `NSubstitute` as faking framework
+## Sample using `Autofac` for IOC/DI and `NSubstitute` for faking
 ```csharp
 var containerBuilder = new ContainerBuilder();
 
@@ -9,8 +9,9 @@ var faker = new Autofaker();
 faker.UseNSubstitute();
 faker.UseAutofac(builder);
 
-//MyClassThatIWantToTest contains two constructor parameters of types IDependency1 and IDependency2 respectively.
-//these two dependencies will be registered as single-instance fakes in the IOC container.
+//MyClassThatIWantToTest contains two constructor parameters of types IDependency1 
+//and IDependency2 respectively. these two dependencies will be registered as 
+//single-instance fakes in the IOC container.
 faker.RegisterFakesForConstructorParameterTypesOf<MyClassThatIWantToTest>();
 
 var container = builder.Build();
@@ -18,7 +19,8 @@ var container = builder.Build();
 //this instance is not faked out, because it is the class that we want to test
 var myClassThatIWantToTest = container.Resolve<MyClassThatIWantToTest>();
 
-//these instances are fakes and single-instance, because they are constructor parameters of MyClassThatIWantToTest.
+//these instances are fakes and single-instance, because they are constructor 
+//parameters of MyClassThatIWantToTest.
 var fakeDependency1 = container.Resolve<IDependency1>();
 var fakeDependency2 = container.Resolve<IDependency2>();
 ```
