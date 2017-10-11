@@ -50,7 +50,7 @@ var container = builder.Build();
 var serviceCollection = new ServiceCollection();
 
 var faker = new Autofaker();
-faker.UseMicrosoftDependencyInjection(builder);
+faker.UseMicrosoftDependencyInjection(serviceCollection);
 
 faker.RegisterFakesForConstructorParameterTypesOf<MyClassThatIWantToTest>();
 
