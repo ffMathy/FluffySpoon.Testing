@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace FluffySpoon.Testing.Autofake.Tests.Data
+﻿namespace FluffySpoon.Testing.Autofake.Tests.Data
 {
-    class MainModel : IMainModel
+	class MainModel : IMainModel
 	{
 		private readonly IFirstDependencyModel _firstDependency;
 		private readonly ISecondDependencyModel _secondDependency;

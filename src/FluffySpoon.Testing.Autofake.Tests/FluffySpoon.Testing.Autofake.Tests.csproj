@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>    
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FluffySpoon.Testing.Autofake.Autofac\FluffySpoon.Testing.Autofake.Autofac.csproj" />
+    <ProjectReference Include="..\FluffySpoon.Testing.Autofake.MicrosoftDependencyInjection\FluffySpoon.Testing.Autofake.MicrosoftDependencyInjection.csproj" />
     <ProjectReference Include="..\FluffySpoon.Testing.Autofake.NSubstitute\FluffySpoon.Testing.Autofake.NSubstitute.csproj" />
     <ProjectReference Include="..\FluffySpoon.Testing.Autofake\FluffySpoon.Testing.Autofake.csproj" />
   </ItemGroup>

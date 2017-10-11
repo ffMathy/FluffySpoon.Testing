@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace FluffySpoon.Testing.Autofake.Tests.Data
+﻿namespace FluffySpoon.Testing.Autofake.Tests.Data
 {
-    class SecondDependencyModel : ISecondDependencyModel
+	class SecondDependencyModel : ISecondDependencyModel
 	{
 		public string SayBar()
 		{

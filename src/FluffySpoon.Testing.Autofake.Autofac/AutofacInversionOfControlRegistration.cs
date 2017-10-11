@@ -1,6 +1,4 @@
 ﻿using Autofac;
-using System;
-using System.Reflection;
 
 namespace FluffySpoon.Testing.Autofake.Autofac
 {
