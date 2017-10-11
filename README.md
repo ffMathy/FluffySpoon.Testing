@@ -63,4 +63,27 @@ var serviceProvider = serviceCollection.BuildServiceProvider();
 ```csharp
 var faker = new Autofaker();
 faker.UseNSubstitute();
+
+...
+
+var fakeClassDependency = container.Resolve<IFakeClassDependency>();
+fakeClassDependency.SayFoo().Returns("fakefoo");
+
+fakeClassDependency.SayFoo(); //returns "fakefoo"
+```
+
+### Moq
+**Package:** `FluffySpoon.Testing.Autofake.Moq`
+
+```csharp
+var faker = new Autofaker();
+faker.UseMoq();
+
+...
+
+var fakeClassDependencyMock = container.Resolve<IMock<IFakeClassDependency>>();
+fakeClassDependencyMock.Setup(x => x.SayFoo()).Returns("fakefoo");
+
+var fakeClassDependency = container.Resolve<IFakeClassDependency>();
+fakeClassDependency.SayFoo(); //returns "fakefoo"
 ```
