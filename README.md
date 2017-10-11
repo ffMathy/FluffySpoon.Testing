@@ -1,3 +1,5 @@
+Need practise in making a system testable and writing tests? See: https://github.com/ffMathy/testability-kata
+
 # FluffySpoon.Testing.Autofake
 The `FluffySpoon.Testing.Autofake` package makes it easy for you to automatically register all your class dependencies as fakes, resulting in a setup that is easier to use with Test Driven Development (TDD) and more flexible to change in your code.
 
