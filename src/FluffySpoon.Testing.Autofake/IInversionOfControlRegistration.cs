@@ -1,8 +1,9 @@
-﻿namespace FluffySpoon.Testing.Autofake
+﻿using System;
+
+namespace FluffySpoon.Testing.Autofake
 {
 	public interface IInversionOfControlRegistration
     {
-		void RegisterInterfaceTypeAsInstance<TInterface>(
-			object instance);
+		void RegisterInterfaceTypeAsInstanceFromAccessor<TInterface>(Func<object> instanceAccessor);
     }
 }

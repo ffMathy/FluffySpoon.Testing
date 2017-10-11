@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using System;
 
 namespace FluffySpoon.Testing.Autofake.Autofac
 {
@@ -12,10 +13,9 @@ namespace FluffySpoon.Testing.Autofake.Autofac
 			_containerBuilder = containerBuilder;
 		}
 
-		public void RegisterInterfaceTypeAsInstance<TInterface>(
-			object instance)
+		public void RegisterInterfaceTypeAsInstanceFromAccessor<TInterface>(Func<object> instanceAccessor)
 		{
-			_containerBuilder.Register(c => (TInterface)instance);
+			_containerBuilder.Register(c => (TInterface)instanceAccessor());
 		}
 	}
 }

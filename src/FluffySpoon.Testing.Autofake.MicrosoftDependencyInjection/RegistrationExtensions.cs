@@ -5,7 +5,7 @@ namespace FluffySpoon.Testing.Autofake
 {
 	public static class RegistrationExtensions
     {
-		public static void UseAutofac(
+		public static void UseMicrosoftDependencyInjection(
 			this Autofaker autofaker,
 			IServiceCollection serviceCollection)
 		{

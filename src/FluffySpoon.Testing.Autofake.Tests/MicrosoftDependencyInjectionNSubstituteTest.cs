@@ -17,12 +17,11 @@ namespace FluffySpoon.Testing.Autofake.Tests
 
 			var faker = new Autofaker();
 			faker.UseNSubstitute();
-			faker.UseAutofac(serviceCollection);
+			faker.UseMicrosoftDependencyInjection(serviceCollection);
 
 			faker.RegisterFakesForConstructorParameterTypesOf<IMainModel>();
-
-			var serviceProviderFactory = new DefaultServiceProviderFactory();
-			var serviceProvider = serviceProviderFactory.CreateServiceProvider(serviceCollection);
+			
+			var serviceProvider = serviceCollection.BuildServiceProvider();
 
 			var fakeFirstDependency = serviceProvider.GetService<IFirstDependencyModel>();
 			fakeFirstDependency.SayFoo().Returns("fakefoo");

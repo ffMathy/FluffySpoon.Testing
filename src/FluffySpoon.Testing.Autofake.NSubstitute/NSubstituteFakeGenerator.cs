@@ -1,15 +1,21 @@
 ﻿using NSubstitute;
 using System;
+using System.Collections.Generic;
 
 namespace FluffySpoon.Testing.Autofake.NSubstitute
 {
 	public class NSubstituteFakeGenerator : IFakeGenerator
 	{
-		public object GenerateFake(Type interfaceType)
+		public IReadOnlyList<IFakeInstanceFactory> GenerateFakeInstanceFactories(Type interfaceType)
 		{
-			return Substitute.For(
-				new Type[] { interfaceType }, 
+			var fakeInstance = Substitute.For(
+				new Type[] { interfaceType },
 				new object[0]);
+			return new IFakeInstanceFactory[] {
+				new FakeInstanceFactory(
+					interfaceType,
+					() => fakeInstance)
+			};
 		}
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace FluffySpoon.Testing.Autofake.Autofac
 {
@@ -12,10 +13,10 @@ namespace FluffySpoon.Testing.Autofake.Autofac
 			_serviceCollection = serviceCollection;
 		}
 
-		public void RegisterInterfaceTypeAsInstance<TInterface>(
-			object instance)
+		public void RegisterInterfaceTypeAsInstanceFromAccessor<TInterface>(
+			Func<object> instanceAccessor)
 		{
-			_serviceCollection.AddSingleton(typeof(TInterface), instance);
+			_serviceCollection.AddSingleton(typeof(TInterface), p => instanceAccessor());
 		}
 	}
 }

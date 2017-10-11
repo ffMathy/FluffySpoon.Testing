@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FluffySpoon.Testing.Autofake
 {
 	public interface IFakeGenerator
 	{
-		object GenerateFake(Type interfaceType);
+		IReadOnlyList<IFakeInstanceFactory> GenerateFakeInstanceFactories(Type interfaceType);
 	}
 }
