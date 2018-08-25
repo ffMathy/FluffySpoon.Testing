@@ -49,7 +49,7 @@ namespace FluffySpoon.Testing.Autofake
 		{
 			if (_registration == null)
 			{
-				throw new InvalidOperationException("An inversion of control registration must be specified.");
+				throw new InvalidOperationException("An Inversion of Control registration must be specified.");
 			}
 
 			if (_fakeGenerator == null)
