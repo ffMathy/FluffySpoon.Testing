@@ -67,6 +67,7 @@ var faker = new Autofaker();
 faker.UseStructureMap(container);
 
 faker.RegisterFakesForConstructorParameterTypesOf<MyClassThatIWantToTest>();
+```
 
 ## Faking frameworks
 
