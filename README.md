@@ -57,6 +57,17 @@ faker.RegisterFakesForConstructorParameterTypesOf<MyClassThatIWantToTest>();
 var serviceProvider = serviceCollection.BuildServiceProvider();
 ```
 
+### StructureMap
+**Package:** `FluffySpoon.Testing.Autofake.StructureMap`
+
+```csharp
+var container = new Container();
+
+var faker = new Autofaker();
+faker.UseStructureMap(container);
+
+faker.RegisterFakesForConstructorParameterTypesOf<MyClassThatIWantToTest>();
+
 ## Faking frameworks
 
 ### NSubstitute
