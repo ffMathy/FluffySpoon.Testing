@@ -1,4 +1,4 @@
-﻿using FluffySpoon.Testing.Autofake.Autofac;
+﻿using FluffySpoon.Testing.Autofake.StructureMap;
 using StructureMap;
 
 namespace FluffySpoon.Testing.Autofake
