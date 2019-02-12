@@ -5,10 +5,10 @@ namespace FluffySpoon.Testing.Autofake.StructureMap
 {
 	public class StructureMapInversionOfControlRegistration : IInversionOfControlRegistration
 	{
-		private readonly Container _container;
+		private readonly IContainer _container;
 
 		public StructureMapInversionOfControlRegistration(
-			Container containerBuilder)
+			IContainer containerBuilder)
 		{
 			_container = containerBuilder;
 		}

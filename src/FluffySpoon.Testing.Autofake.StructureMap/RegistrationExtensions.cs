@@ -7,7 +7,7 @@ namespace FluffySpoon.Testing.Autofake
     {
 		public static void UseStructureMap(
 			this Autofaker autofaker,
-			Container container)
+			IContainer container)
 		{
 			autofaker.Configure(
 				new StructureMapInversionOfControlRegistration(container));

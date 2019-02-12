@@ -1,10 +1,10 @@
-﻿using Moq;
-using System;
-using System.Linq;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
+using Moq;
 
-namespace FluffySpoon.Testing.Autofake.NSubstitute
+namespace FluffySpoon.Testing.Autofake.Moq
 {
 	public class MoqFakeGenerator : IFakeGenerator
 	{

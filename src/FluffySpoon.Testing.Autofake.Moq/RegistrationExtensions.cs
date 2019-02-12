@@ -1,4 +1,4 @@
-﻿using FluffySpoon.Testing.Autofake.NSubstitute;
+﻿using FluffySpoon.Testing.Autofake.Moq;
 
 namespace FluffySpoon.Testing.Autofake
 {
