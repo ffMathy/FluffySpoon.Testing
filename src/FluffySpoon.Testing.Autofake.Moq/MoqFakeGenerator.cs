@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using Moq;
@@ -10,27 +11,56 @@ namespace FluffySpoon.Testing.Autofake.Moq
 	{
 		public IReadOnlyList<IFakeInstanceFactory> GenerateFakeInstanceFactories(Type interfaceType)
 		{
-			var genericMockType = typeof(Mock<>).MakeGenericType(interfaceType);
+            var genericMockType = typeof(Mock<>).MakeGenericType(interfaceType);
 			var genericMockInterfaceType = typeof(IMock<>).MakeGenericType(interfaceType);
 			var genericMockInstance = Activator.CreateInstance(genericMockType);
-			
-			var genericMockInstanceProperty = genericMockType
-				.GetProperties(
-					BindingFlags.Instance | 
-					BindingFlags.Public)
-				.Single(p => 
-					p.Name == nameof(IMock<object>.Object) &&
-					p.PropertyType == interfaceType);
-			var genericMockInstanceAccessor = (Func<object>)(() => genericMockInstanceProperty
-				.GetMethod
-				.Invoke(
-					genericMockInstance,
-					new object[0]));
+            var genericEnumerableInterfaceType = typeof(IEnumerable<>).MakeGenericType(interfaceType);
+            var genericListInterfaceType = typeof(List<>).MakeGenericType(interfaceType);
+            var genericListInterfaceInstance = Activator.CreateInstance(genericListInterfaceType);
 
-			return new IFakeInstanceFactory[] {
-				new FakeInstanceFactory(
-					interfaceType,
-					genericMockInstanceAccessor),
+            var genericListAddMethod = genericListInterfaceType.GetMethod(nameof(List<object>.Add));
+            Debug.Assert(genericListAddMethod != null, nameof(genericListAddMethod) + " != null");
+
+            var genericMockInstanceProperty = genericMockType
+                .GetProperties(
+                    BindingFlags.Instance |
+                    BindingFlags.Public)
+                .Single(p =>
+                    p.Name == nameof(IMock<object>.Object) &&
+                    p.PropertyType == interfaceType);
+
+            genericListAddMethod.Invoke(
+                genericListInterfaceInstance,
+                new[]
+                {
+                    InvokeGetPropertyOnTarget(
+                        genericMockInstanceProperty,
+                        genericMockInstance)
+                });
+
+            object InvokeGetPropertyOnTarget(PropertyInfo propertyInfo, object o)
+            {
+                return propertyInfo
+                    .GetMethod
+                    .Invoke(
+                        o,
+                        new object[0]);
+            }
+
+            object GenericMockInstanceAccessor()
+            {
+                return InvokeGetPropertyOnTarget(
+                    genericMockInstanceProperty, 
+                    genericMockInstance);
+            }
+
+            return new IFakeInstanceFactory[] {
+                new FakeInstanceFactory(
+                    interfaceType,
+                    GenericMockInstanceAccessor),
+                new FakeInstanceFactory(
+                    genericEnumerableInterfaceType,
+                    () => genericListInterfaceInstance),
 				new FakeInstanceFactory(
 					genericMockType,
 					() => genericMockInstance),

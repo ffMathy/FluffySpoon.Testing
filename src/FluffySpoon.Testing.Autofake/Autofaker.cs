@@ -48,19 +48,14 @@ namespace FluffySpoon.Testing.Autofake
 		public void RegisterFakesForConstructorParameterTypesOf<TClassOrInterface>()
 		{
 			if (_registration == null)
-			{
 				throw new InvalidOperationException("An Inversion of Control registration must be specified.");
-			}
 
 			if (_fakeGenerator == null)
-			{
-				throw new InvalidOperationException("A fake generator must be specified.");
-			}
+				throw new InvalidOperationException("A faking framework must be specified.");
 
 			var classType = typeof(TClassOrInterface);
-			var interfaceType = classType;
 
-			var classTypeInfo = classType.GetTypeInfo();
+            var classTypeInfo = classType.GetTypeInfo();
 			if (classTypeInfo.IsInterface)
 			{
 				classType = FindImplementingClassType(classType);
@@ -70,9 +65,7 @@ namespace FluffySpoon.Testing.Autofake
 			  .DeclaredConstructors
 			  .ToArray();
 			if (constructors.Length > 1)
-			{
-				throw new InvalidOperationException("More than one constructor was found for " + classType.FullName + ".");
-			}
+				throw new InvalidOperationException("More than one constructor was found for " + classType.FullName + " which is not supported by Autofaker.");
 
 			var constructor = constructors.Single();
 
@@ -111,7 +104,7 @@ namespace FluffySpoon.Testing.Autofake
 					continue;
 
 				var implementedInterfaces = classType.ImplementedInterfaces;
-				if (!implementedInterfaces.Any(x => x == interfaceType))
+				if (implementedInterfaces.All(x => x != interfaceType))
 					continue;
 
 				return classType.AsType();

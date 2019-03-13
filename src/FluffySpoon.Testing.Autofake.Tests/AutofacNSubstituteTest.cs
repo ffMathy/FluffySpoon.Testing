@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Autofac;
 using FluffySpoon.Testing.Autofake.Tests.Data;
@@ -22,8 +24,17 @@ namespace FluffySpoon.Testing.Autofake.Tests
 
 			var container = builder.Build();
 
-			var fakeFirstDependency = container.Resolve<IFirstDependencyModel>();
+            var fakeEnumerable = container
+                .Resolve<IEnumerable<IFirstDependencyModel>>()
+                .ToArray();
+            Assert.AreEqual(1, fakeEnumerable.Length);
+
+            var fakeEnumerableInstance = fakeEnumerable.Single();
+
+            var fakeFirstDependency = container.Resolve<IFirstDependencyModel>();
 			fakeFirstDependency.SayFoo().Returns("fakefoo");
+
+            Assert.AreSame(fakeFirstDependency, fakeEnumerableInstance);
 
 			var fakeSecondDependency = container.Resolve<ISecondDependencyModel>();
 			fakeSecondDependency.SayBar().Returns("fakebar");

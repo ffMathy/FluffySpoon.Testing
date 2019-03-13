@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Autofac;
 using FluffySpoon.Testing.Autofake.Tests.Data;
@@ -29,7 +31,14 @@ namespace FluffySpoon.Testing.Autofake.Tests
 			var fakeFirstDependencyMockInterface = container.Resolve<Mock<IFirstDependencyModel>>();
 			var fakeSecondDependencyMockInterface = container.Resolve<Mock<ISecondDependencyModel>>();
 
-			Assert.AreSame(fakeFirstDependencyMock, fakeFirstDependencyMockInterface);
+            var fakeEnumerable = container
+                .Resolve<IEnumerable<IFirstDependencyModel>>()
+                .ToArray();
+            Assert.AreEqual(1, fakeEnumerable.Length);
+
+            var fakeEnumerableInstance = fakeEnumerable.Single();
+
+            Assert.AreSame(fakeFirstDependencyMock, fakeFirstDependencyMockInterface);
 			Assert.AreSame(fakeSecondDependencyMock, fakeSecondDependencyMockInterface);
 
 			fakeFirstDependencyMock.Setup(x => x.SayFoo()).Returns("fakefoo");
@@ -37,8 +46,9 @@ namespace FluffySpoon.Testing.Autofake.Tests
 
 			var fakeFirstDependencyInstance = container.Resolve<IFirstDependencyModel>();
 			Assert.AreEqual("fakefoo", fakeFirstDependencyInstance.SayFoo());
+            Assert.AreSame(fakeFirstDependencyInstance, fakeEnumerableInstance);
 
-			var fakeSecondDependencyInstance = container.Resolve<ISecondDependencyModel>();
+            var fakeSecondDependencyInstance = container.Resolve<ISecondDependencyModel>();
 			Assert.AreEqual("fakebar", fakeSecondDependencyInstance.SayBar());
 
 			var mainModel = container.Resolve<IMainModel>();
