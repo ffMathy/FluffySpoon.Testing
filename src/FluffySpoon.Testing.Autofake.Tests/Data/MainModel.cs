@@ -1,11 +1,15 @@
-﻿namespace FluffySpoon.Testing.Autofake.Tests.Data
+﻿using System.Collections.Generic;
+
+namespace FluffySpoon.Testing.Autofake.Tests.Data
 {
 	class MainModel : IMainModel
 	{
 		private readonly IFirstDependencyModel _firstDependency;
 		private readonly ISecondDependencyModel _secondDependency;
+        private readonly IEnumerable<IFirstDependencyModel> _firstDependencyModels;
 
-		public IFirstDependencyModel GetFirstDependency() => _firstDependency;
+        public IEnumerable<IFirstDependencyModel> GetFirstDependencyModels() => _firstDependencyModels;
+        public IFirstDependencyModel GetFirstDependency() => _firstDependency;
 		public ISecondDependencyModel GetSecondDependency() => _secondDependency;
 
 		public string SayStuff()
@@ -15,10 +19,12 @@
 
 		public MainModel(
 			IFirstDependencyModel firstDependency,
-			ISecondDependencyModel secondDependency)
+			ISecondDependencyModel secondDependency,
+            IEnumerable<IFirstDependencyModel> firstDependencyModels)
 		{
 			_firstDependency = firstDependency;
 			_secondDependency = secondDependency;
-		}
+            _firstDependencyModels = firstDependencyModels;
+        }
     }
 }

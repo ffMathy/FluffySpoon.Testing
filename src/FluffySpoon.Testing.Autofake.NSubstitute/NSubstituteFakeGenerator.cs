@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace FluffySpoon.Testing.Autofake.NSubstitute
 {
@@ -9,6 +10,13 @@ namespace FluffySpoon.Testing.Autofake.NSubstitute
 	{
 		public IReadOnlyList<IFakeInstanceFactory> GenerateFakeInstanceFactories(Type interfaceType)
         {
+            if (interfaceType.IsGenericType && interfaceType.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+            {
+                interfaceType = interfaceType
+                    .GetGenericArguments()
+                    .Single();
+            }
+
             var genericEnumerableInterfaceType = typeof(IEnumerable<>).MakeGenericType(interfaceType);
             var genericListInterfaceType = typeof(List<>).MakeGenericType(interfaceType);
             var genericListInterfaceInstance = Activator.CreateInstance(genericListInterfaceType);

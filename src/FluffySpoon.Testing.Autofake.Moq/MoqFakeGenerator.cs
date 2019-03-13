@@ -10,7 +10,14 @@ namespace FluffySpoon.Testing.Autofake.Moq
 	public class MoqFakeGenerator : IFakeGenerator
 	{
 		public IReadOnlyList<IFakeInstanceFactory> GenerateFakeInstanceFactories(Type interfaceType)
-		{
+        {
+            if (interfaceType.IsGenericType && interfaceType.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+            {
+                interfaceType = interfaceType
+                    .GetGenericArguments()
+                    .Single();
+            }
+
             var genericMockType = typeof(Mock<>).MakeGenericType(interfaceType);
 			var genericMockInterfaceType = typeof(IMock<>).MakeGenericType(interfaceType);
 			var genericMockInstance = Activator.CreateInstance(genericMockType);
