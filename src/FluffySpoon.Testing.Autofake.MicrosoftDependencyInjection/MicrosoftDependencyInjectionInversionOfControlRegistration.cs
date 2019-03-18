@@ -14,8 +14,8 @@ namespace FluffySpoon.Testing.Autofake.Autofac
 		}
 
 		public void RegisterInterfaceTypeAsInstanceFromAccessor<TInterface>(
-			Func<object> instanceAccessor)
-		{
+			Func<object> instanceAccessor) where TInterface : class
+        {
 			_serviceCollection.AddSingleton(typeof(TInterface), p => instanceAccessor());
 		}
 	}

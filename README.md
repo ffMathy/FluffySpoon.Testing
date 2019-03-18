@@ -69,6 +69,18 @@ faker.UseStructureMap(container);
 faker.RegisterFakesForConstructorParameterTypesOf<MyClassThatIWantToTest>();
 ```
 
+### Lamar
+**Package:** `FluffySpoon.Testing.Autofake.Lamar`
+
+```csharp
+var container = new Container(serviceRegistry => {
+	var faker = new Autofaker();
+	faker.UseLamar(serviceRegistry);
+
+	faker.RegisterFakesForConstructorParameterTypesOf<MyClassThatIWantToTest>();
+});
+```
+
 ## Faking frameworks
 
 ### NSubstitute

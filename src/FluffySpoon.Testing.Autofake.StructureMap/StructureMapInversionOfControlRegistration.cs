@@ -13,8 +13,8 @@ namespace FluffySpoon.Testing.Autofake.StructureMap
 			_container = containerBuilder;
 		}
 
-		public void RegisterInterfaceTypeAsInstanceFromAccessor<TInterface>(Func<object> instanceAccessor)
-		{
+		public void RegisterInterfaceTypeAsInstanceFromAccessor<TInterface>(Func<object> instanceAccessor) where TInterface : class
+        {
 			_container.Configure(x => x.For<TInterface>().Use(() => (TInterface)instanceAccessor()));
 		}
 	}

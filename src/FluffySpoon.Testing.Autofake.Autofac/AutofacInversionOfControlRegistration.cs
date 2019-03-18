@@ -13,7 +13,7 @@ namespace FluffySpoon.Testing.Autofake.Autofac
 			_containerBuilder = containerBuilder;
 		}
 
-		public void RegisterInterfaceTypeAsInstanceFromAccessor<TInterface>(Func<object> instanceAccessor)
+		public void RegisterInterfaceTypeAsInstanceFromAccessor<TInterface>(Func<object> instanceAccessor) where TInterface : class
 		{
 			_containerBuilder.Register(c => (TInterface)instanceAccessor());
 		}

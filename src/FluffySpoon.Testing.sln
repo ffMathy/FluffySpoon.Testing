@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluffySpoon.Testing.Autofak
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluffySpoon.Testing.Autofake.Moq", "FluffySpoon.Testing.Autofake.Moq\FluffySpoon.Testing.Autofake.Moq.csproj", "{30CDA54C-1B75-4BDC-ADB6-6F46481EE4AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluffySpoon.Testing.Autofake.StructureMap", "FluffySpoon.Testing.Autofake.StructureMap\FluffySpoon.Testing.Autofake.StructureMap.csproj", "{622CC111-96E3-4ACE-BE4F-65E3AF212C06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluffySpoon.Testing.Autofake.StructureMap", "FluffySpoon.Testing.Autofake.StructureMap\FluffySpoon.Testing.Autofake.StructureMap.csproj", "{622CC111-96E3-4ACE-BE4F-65E3AF212C06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluffySpoon.Testing.Autofake.Lamar", "FluffySpoon.Testing.Autofake.Lamar\FluffySpoon.Testing.Autofake.Lamar.csproj", "{AB075B55-05E7-407F-91E1-6BCEFB54DD88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{622CC111-96E3-4ACE-BE4F-65E3AF212C06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{622CC111-96E3-4ACE-BE4F-65E3AF212C06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{622CC111-96E3-4ACE-BE4F-65E3AF212C06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB075B55-05E7-407F-91E1-6BCEFB54DD88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB075B55-05E7-407F-91E1-6BCEFB54DD88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB075B55-05E7-407F-91E1-6BCEFB54DD88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB075B55-05E7-407F-91E1-6BCEFB54DD88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
