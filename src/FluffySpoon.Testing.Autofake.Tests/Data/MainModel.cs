@@ -20,7 +20,8 @@ namespace FluffySpoon.Testing.Autofake.Tests.Data
 		public MainModel(
 			IFirstDependencyModel firstDependency,
 			ISecondDependencyModel secondDependency,
-            IEnumerable<IFirstDependencyModel> firstDependencyModels)
+            IEnumerable<IFirstDependencyModel> firstDependencyModels,
+            string someString)
 		{
 			_firstDependency = firstDependency;
 			_secondDependency = secondDependency;
