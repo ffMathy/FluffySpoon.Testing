@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FluffySpoon.Testing.Autofake.Autofac\FluffySpoon.Testing.Autofake.Autofac.csproj" />
+    <ProjectReference Include="..\FluffySpoon.Testing.Autofake.FakeItEasy\FluffySpoon.Testing.Autofake.FakeItEasy.csproj" />
     <ProjectReference Include="..\FluffySpoon.Testing.Autofake.MicrosoftDependencyInjection\FluffySpoon.Testing.Autofake.MicrosoftDependencyInjection.csproj" />
     <ProjectReference Include="..\FluffySpoon.Testing.Autofake.Moq\FluffySpoon.Testing.Autofake.Moq.csproj" />
     <ProjectReference Include="..\FluffySpoon.Testing.Autofake.NSubstitute\FluffySpoon.Testing.Autofake.NSubstitute.csproj" />

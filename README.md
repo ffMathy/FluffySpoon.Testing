@@ -98,6 +98,21 @@ fakeClassDependency.SayFoo().Returns("fakefoo");
 fakeClassDependency.SayFoo(); //returns "fakefoo"
 ```
 
+### FakeItEasy
+**Package:** `FluffySpoon.Testing.Autofake.FakeItEasy`
+
+```csharp
+var faker = new Autofaker();
+faker.UseFakeItEasy();
+
+...
+
+var fakeClassDependency = container.Resolve<IFakeClassDependency>();
+A.CallTo(() => fakeClassDependency.SayFoo()).Returns("fakefoo");
+
+fakeClassDependency.SayFoo(); //returns "fakefoo"
+```
+
 ### Moq
 **Package:** `FluffySpoon.Testing.Autofake.Moq`
 
