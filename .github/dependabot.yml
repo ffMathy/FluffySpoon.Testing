@@ -1,0 +1,36 @@
+version: 2
+updates:
+- package-ecosystem: nuget
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 30
+  ignore:
+  - dependency-name: MSTest.TestFramework
+    versions:
+    - 2.1.2
+    - 2.2.2
+  - dependency-name: MSTest.TestAdapter
+    versions:
+    - 2.1.2
+    - 2.2.2
+  - dependency-name: fakeiteasy
+    versions:
+    - 6.2.1
+    - 7.0.0
+  - dependency-name: Microsoft.Extensions.DependencyInjection
+    versions:
+    - 5.0.1
+  - dependency-name: Autofac
+    versions:
+    - 6.1.0
+  - dependency-name: Microsoft.NET.Test.Sdk
+    versions:
+    - 16.8.3
+  - dependency-name: NSubstitute
+    versions:
+    - 4.2.2
+  - dependency-name: StructureMap
+    versions:
+    - 4.7.1
